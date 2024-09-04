@@ -1,1 +1,7 @@
-<p>todo-list works!</p>
+<mat-selection-list #shoes>
+    @for (todo of todos; track $index) {
+    <mat-list-option selected="{{todo.done}}" (click)="toggleSelection(todo)">
+        {{todo.title}}
+    </mat-list-option>
+    }
+</mat-selection-list>
