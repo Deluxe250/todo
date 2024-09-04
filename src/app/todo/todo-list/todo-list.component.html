@@ -1,6 +1,6 @@
 <mat-selection-list #shoes>
     @for (todo of todos; track $index) {
-    <mat-list-option selected="{{todo.done}}" (click)="toggleSelection(todo)">
+    <mat-list-option selected="{{todo.done}}" (click)="toggleSelection(todo)" togglePosition="before">
         {{todo.title}}
     </mat-list-option>
     }
