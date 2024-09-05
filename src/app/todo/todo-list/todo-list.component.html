@@ -1,8 +1,10 @@
 <mat-selection-list #shoes>
-    @for (todo of todos$ | async; track $index) {
-    <mat-list-option selected="{{todo.done}}" (click)="todo.done ? uncheck(todo.id): check(todo.id)"
-        togglePosition="before">
-        {{todo.title}}
+  @for (todo of todos$ | async; track $index) {
+    <mat-list-option
+      selected="{{ todo.done }}"
+      (click)="todo.done ? uncheck(todo.id) : check(todo.id)"
+      togglePosition="before">
+      {{ todo.title }}
     </mat-list-option>
-    }
+  }
 </mat-selection-list>
