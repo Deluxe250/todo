@@ -1,4 +1,8 @@
-import { ApplicationConfig, provideZoneChangeDetection, isDevMode } from '@angular/core';
+import {
+  ApplicationConfig,
+  provideZoneChangeDetection,
+  isDevMode,
+} from '@angular/core';
 import { provideRouter } from '@angular/router';
 
 import { routes } from './app.routes';
@@ -14,5 +18,6 @@ export const appConfig: ApplicationConfig = {
     provideAnimationsAsync(),
     provideStore(),
     provideState({ name: 'todo', reducer: todoReducer }),
-    provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() })]
+    provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() }),
+  ],
 };

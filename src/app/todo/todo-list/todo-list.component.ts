@@ -11,12 +11,9 @@ import { selectTodoList } from '../store/todo.selector';
 @Component({
   selector: 'app-todo-list',
   standalone: true,
-  imports: [
-    CommonModule,
-    MatListModule,
-  ],
+  imports: [CommonModule, MatListModule],
   templateUrl: './todo-list.component.html',
-  styleUrl: './todo-list.component.scss'
+  styleUrl: './todo-list.component.scss',
 })
 export class TodoListComponent {
   todos$: Observable<TodoModel[]>;
