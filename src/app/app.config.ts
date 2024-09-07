@@ -11,6 +11,7 @@ import { provideState, provideStore } from '@ngrx/store';
 import { todoReducer } from './todo/store/todo.reducer';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
 import { provideEffects } from '@ngrx/effects';
+import { TodoEffects } from './todo/store/todo.effects';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -20,6 +21,6 @@ export const appConfig: ApplicationConfig = {
     provideStore(),
     provideState({ name: 'todo', reducer: todoReducer }),
     provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() }),
-    provideEffects(),
+    provideEffects(TodoEffects),
   ],
 };
