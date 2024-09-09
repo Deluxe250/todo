@@ -14,13 +14,17 @@ export const todoReducer = createReducer(
   on(check, (state, { todoId }) => ({
     ...state,
     todos: state.todos.map(t =>
-      t.id === todoId ? new TodoModel(t.title, true) : t
+      t.id === todoId
+        ? new TodoModel({ id: todoId, title: t.title, done: true })
+        : t
     ),
   })),
   on(uncheck, (state, { todoId }) => ({
     ...state,
     todos: state.todos.map(t =>
-      t.id === todoId ? new TodoModel(t.title, false) : t
+      t.id === todoId
+        ? new TodoModel({ id: todoId, title: t.title, done: false })
+        : t
     ),
   }))
 );

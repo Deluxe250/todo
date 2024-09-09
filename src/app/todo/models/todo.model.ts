@@ -1,8 +1,8 @@
 export class TodoModel {
-  constructor(title: string, done?: boolean) {
-    this.id = crypto.randomUUID();
-    this.title = title;
-    this.done = done || false;
+  constructor(init: Partial<TodoModel>) {
+    this.id = init.id || crypto.randomUUID();
+    this.title = init.title || '';
+    this.done = init.done || false;
   }
 
   id: string;
