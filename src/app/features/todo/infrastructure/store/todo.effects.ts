@@ -6,7 +6,7 @@ import {
   ofType,
 } from '@ngrx/effects';
 import { catchError, EMPTY, map, of, switchMap } from 'rxjs';
-import { TodoModel } from '../models';
+import { TodoModel } from '../../domain/models';
 import { loadSuccess } from './todo.actions';
 
 @Injectable()

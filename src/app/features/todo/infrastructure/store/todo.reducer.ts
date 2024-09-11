@@ -1,7 +1,7 @@
 import { createReducer, on } from '@ngrx/store';
 import { check, loadSuccess, uncheck } from './todo.actions';
 import { initialState } from './initial.state';
-import { TodoModel } from '../models';
+import { TodoModel } from '../../domain/models';
 
 export const todoReducer = createReducer(
   initialState,

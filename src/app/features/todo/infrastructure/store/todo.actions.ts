@@ -1,5 +1,5 @@
 import { createAction, props } from '@ngrx/store';
-import { TodoModel } from '../models';
+import { TodoModel } from '../../domain/models';
 
 export const check = createAction(
   '[TodoList Component] Check',

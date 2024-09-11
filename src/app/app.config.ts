@@ -8,10 +8,10 @@ import { provideRouter } from '@angular/router';
 import { routes } from './app.routes';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { provideState, provideStore } from '@ngrx/store';
-import { todoReducer } from './todo/store/todo.reducer';
+import { todoReducer } from './features/todo/infrastructure/store/todo.reducer';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
 import { provideEffects } from '@ngrx/effects';
-import { TodoEffects } from './todo/store/todo.effects';
+import { TodoEffects } from './features/todo/infrastructure/store/todo.effects';
 
 export const appConfig: ApplicationConfig = {
   providers: [

@@ -1,4 +1,4 @@
-import { TodoModel } from '../models';
+import { TodoModel } from '../../domain/models';
 
 export interface TodoState {
   todos: TodoModel[];
