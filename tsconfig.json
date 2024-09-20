@@ -19,23 +19,12 @@
     "importHelpers": true,
     "target": "ES2022",
     "module": "ES2022",
-    "lib": [
-      "ES2022",
-      "dom"
-    ],
+    "lib": ["ES2022", "dom"],
     "paths": {
-      "@application/*": [
-        "./src/app/features/todo/application/*"
-      ],
-      "@domain/*": [
-        "./src/app/features/todo/domain/*"
-      ],
-      "@infrastructure/*": [
-        "./src/app/features/todo/infrastructure/*"
-      ],
-      "@shared/*": [
-        "./src/app/shared/*"
-      ]
+      "@application/*": ["./src/app/features/todo/application/*"],
+      "@domain/*": ["./src/app/features/todo/domain/*"],
+      "@infrastructure/*": ["./src/app/features/todo/infrastructure/*"],
+      "@shared/*": ["./src/app/shared/*"]
     }
   },
   "angularCompilerOptions": {
