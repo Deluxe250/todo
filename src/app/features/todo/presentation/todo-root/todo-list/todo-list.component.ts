@@ -1,7 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { MatListModule } from '@angular/material/list';
-import { TodoAppService } from '@application/services';
+import {
+  CheckTodoUsecase,
+  LoadTodosUsecase,
+  UncheckTodoUsecase,
+} from '@application/usecases';
 
 @Component({
   selector: 'app-todo-list',
@@ -11,17 +15,21 @@ import { TodoAppService } from '@application/services';
   styleUrl: './todo-list.component.scss',
 })
 export class TodoListComponent implements OnInit {
-  constructor(private appService: TodoAppService) {}
+  constructor(
+    private loadTodosUseCase: LoadTodosUsecase,
+    private checkTodoUseCase: CheckTodoUsecase,
+    private uncheckTodoUseCase: UncheckTodoUsecase
+  ) {}
 
   ngOnInit(): void {
-    this.appService.loadTodos();
+    this.loadTodosUseCase.execute();
   }
 
   check(todoId: string) {
-    this.appService.checkTodo(todoId);
+    this.checkTodoUseCase.execute(todoId);
   }
 
   uncheck(todoId: string) {
-    this.appService.uncheckTodo(todoId);
+    this.uncheckTodoUseCase.execute(todoId);
   }
 }
