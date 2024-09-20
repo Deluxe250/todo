@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core';
-import { UseCase } from '@shared/use-case.interface';
-import { Observable, of } from 'rxjs';
+import { check, TodoState } from '@infrastructure/store';
+import { Store } from '@ngrx/store';
+import { UseCase } from '@shared';
 
 @Injectable()
 export class UncheckTodoUsecase implements UseCase<string, void> {
-  execute(): Observable<void> {
-    return of();
+  constructor(private store: Store<TodoState>) {}
+  execute(todoId: string): void {
+    return this.store.dispatch(check({ todoId }));
   }
 }

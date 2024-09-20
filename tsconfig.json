@@ -24,6 +24,7 @@
       "@application/*": ["./src/app/features/todo/application/*"],
       "@domain/*": ["./src/app/features/todo/domain/*"],
       "@infrastructure/*": ["./src/app/features/todo/infrastructure/*"],
+      "@shared": ["./src/app/shared"],
       "@shared/*": ["./src/app/shared/*"]
     }
   },
