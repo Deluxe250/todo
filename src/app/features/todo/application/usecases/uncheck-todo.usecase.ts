@@ -6,6 +6,7 @@ import { UseCase } from '@shared';
 @Injectable()
 export class UncheckTodoUsecase implements UseCase<string, void> {
   constructor(private store: Store<TodoState>) {}
+
   execute(todoId: string): void {
     return this.store.dispatch(check({ todoId }));
   }
