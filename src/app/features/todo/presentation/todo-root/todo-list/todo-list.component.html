@@ -2,7 +2,7 @@
   @for (todo of todos$ | async; track $index) {
     <mat-list-option
       selected="{{ todo.done }}"
-      (click)="todo.done ? uncheck(todo.id) : check(todo.id)"
+      (click)="todo.done ? uncheck(todo) : check(todo)"
       togglePosition="before">
       {{ todo.title }}
     </mat-list-option>

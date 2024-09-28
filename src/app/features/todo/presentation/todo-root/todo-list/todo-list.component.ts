@@ -8,7 +8,7 @@ import {
   UncheckTodoUsecase,
 } from '@application/usecases';
 import { TodoModel } from '@domain/models';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 
 @Component({
   selector: 'app-todo-list',
@@ -25,7 +25,7 @@ export class TodoListComponent implements OnInit {
     private checkTodoUseCase: CheckTodoUsecase,
     private uncheckTodoUseCase: UncheckTodoUsecase
   ) {
-    this.todos$ = this.loadTodosUseCase.todos$;
+    this.todos$ = of([]);
   }
 
   ngOnInit(): void {
