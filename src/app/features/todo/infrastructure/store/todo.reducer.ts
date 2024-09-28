@@ -1,7 +1,6 @@
 import { createReducer, on } from '@ngrx/store';
 import { check, loadSuccess, uncheck } from './todo.actions';
 import { initialState } from './initial.state';
-import { TodoModel } from '../../domain/models';
 
 export const todoReducer = createReducer(
   initialState,
@@ -11,20 +10,12 @@ export const todoReducer = createReducer(
       todos: todos,
     };
   }),
-  on(check, (state, { todoId }) => ({
+  on(check, (state, { todo }) => ({
     ...state,
-    todos: state.todos.map(t =>
-      t.id === todoId
-        ? new TodoModel({ id: todoId, title: t.title, done: true })
-        : t
-    ),
+    todos: state.todos.map(t => (t.id === todo.id ? todo : t)),
   })),
-  on(uncheck, (state, { todoId }) => ({
+  on(uncheck, (state, { todo }) => ({
     ...state,
-    todos: state.todos.map(t =>
-      t.id === todoId
-        ? new TodoModel({ id: todoId, title: t.title, done: false })
-        : t
-    ),
+    todos: state.todos.map(t => (t.id === todo.id ? todo : t)),
   }))
 );

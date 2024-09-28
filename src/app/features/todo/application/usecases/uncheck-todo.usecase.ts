@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
-import { check, TodoState } from '@infrastructure/store';
+import { TodoModel } from '@domain/models';
+import { TodoState, uncheck } from '@infrastructure/store';
 import { Store } from '@ngrx/store';
 import { UseCase } from '@shared';
 
 @Injectable()
-export class UncheckTodoUsecase implements UseCase<string, void> {
+export class UncheckTodoUsecase implements UseCase<TodoModel, void> {
   constructor(private store: Store<TodoState>) {}
 
-  execute(todoId: string): void {
-    return this.store.dispatch(check({ todoId }));
+  execute(todo: TodoModel): void {
+    return this.store.dispatch(uncheck({ todo }));
   }
 }

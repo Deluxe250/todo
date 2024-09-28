@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatListModule } from '@angular/material/list';
 import {
   CheckTodoUsecase,
+  GetTodosUsecase,
   LoadTodosUsecase,
   UncheckTodoUsecase,
 } from '@application/usecases';
@@ -20,6 +21,7 @@ export class TodoListComponent implements OnInit {
   todos$: Observable<TodoModel[]>;
   constructor(
     private loadTodosUseCase: LoadTodosUsecase,
+    private getTodosUseCase: GetTodosUsecase,
     private checkTodoUseCase: CheckTodoUsecase,
     private uncheckTodoUseCase: UncheckTodoUsecase
   ) {
@@ -27,14 +29,15 @@ export class TodoListComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.todos$ = this.getTodosUseCase.execute();
     this.loadTodosUseCase.execute();
   }
 
-  check(todoId: string) {
-    this.checkTodoUseCase.execute(todoId);
+  check(todo: TodoModel) {
+    this.checkTodoUseCase.execute(todo);
   }
 
-  uncheck(todoId: string) {
-    this.uncheckTodoUseCase.execute(todoId);
+  uncheck(todo: TodoModel) {
+    this.uncheckTodoUseCase.execute(todo);
   }
 }

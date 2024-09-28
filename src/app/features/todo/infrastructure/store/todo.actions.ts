@@ -3,12 +3,12 @@ import { TodoModel } from '../../domain/models';
 
 export const check = createAction(
   '[TodoList Component] Check',
-  props<{ todoId: string }>()
+  props<{ todo: TodoModel }>()
 );
 
 export const uncheck = createAction(
   '[TodoList Component] Uncheck',
-  props<{ todoId: string }>()
+  props<{ todo: TodoModel }>()
 );
 
 export const load = createAction('[TodoList Component] Load');
