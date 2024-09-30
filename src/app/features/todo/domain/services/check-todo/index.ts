@@ -1,1 +1,1 @@
-export * from './check-todo.service';
+export * from './check-todo.domain.service';
