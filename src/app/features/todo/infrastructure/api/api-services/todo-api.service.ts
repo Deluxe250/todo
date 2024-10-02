@@ -1,16 +1,22 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { TodoDTO } from '../dtos';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
 })
 export class TodoApiService {
+  constructor(private http: HttpClient) {}
+
   getTodos(): Observable<TodoDTO[]> {
-    return of([
-      { id: crypto.randomUUID(), title: 'work', done: false },
-      { id: crypto.randomUUID(), title: 'play', done: false },
-      { id: crypto.randomUUID(), title: 'sleep', done: false },
-    ]);
+    return this.http.get<TodoDTO[]>('initial-todos.json').pipe(
+      map(todos =>
+        todos.map(todo => {
+          todo.id = crypto.randomUUID();
+          return todo;
+        })
+      )
+    );
   }
 }

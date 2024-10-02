@@ -12,12 +12,14 @@ import { todoReducer } from './features/todo/infrastructure/store/todo.reducer';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
 import { provideEffects } from '@ngrx/effects';
 import { TodoEffects } from './features/todo/infrastructure/store/todo.effects';
+import { provideHttpClient } from '@angular/common/http';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
     provideAnimationsAsync(),
+    provideHttpClient(),
     provideStore(),
     provideState({ name: 'todo', reducer: todoReducer }),
     provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() }),
